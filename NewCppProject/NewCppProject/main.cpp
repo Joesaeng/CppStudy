@@ -1,4 +1,4 @@
-﻿
+﻿#include <stdio.h>
 
 #define HUNGRY	0x01	//16진수 0x를 앞에 붙인다
 #define THIRSTY		0x02
@@ -30,7 +30,7 @@ int main()
 	// 정수형 : char(1), short(2), int(4), long(4), long long(8)....
 	// 실수형 : float(4), double(8) ....
 
-	int i = 0;
+	//int i = 0;
 
 	// 1바이트로 양수만 표현
 	// 256가지 -> 0 ~ 255
@@ -176,7 +176,7 @@ int main()
 
 	// 비트 연산자
 	// 쉬프트 <<, >> 비트를 방향으로 한칸씩 미는 연산
-	int n;
+	int n=1;
 	unsigned char byte = 1;
 	byte <<= n; // byte 의 2^n 배수
 	byte >>= n; // byte 의 2^n 으로 나눈 몫
@@ -221,9 +221,44 @@ int main()
 	// 함수
 	int addData = Add(10, 20);
 
+	//printf("Hello World\n");
+	//반복문
+	//for (/*반복자 초기화*/;/*반복자 조건 체크*/;/*반복자 변경*/)
+	
+	for (int i = 0; i < 4; ++i)
+	{
+		if (i % 2 == 1)
+		{
+			continue; // 반복문의 시작 지점으로 이동
+		}
+		printf("Hello World\n");
 
+		//break; //반복문 탈출
+	}
 
+	int i = 0;
+	while (i < 2)
+	{
+		printf("hello world\n");
+		++i;
 
+		continue;
+
+		break;
+	}
 
 	return 0;
 }
+
+// 단축키
+// 지정한 구문 주석			: Ctrl + k, c
+// 지정한 구문 주석 해제		: Ctrl + k, u
+// Alt Drag					: 원하는 부분만 드래그
+
+// 디버깅
+// 디버깅 시작	: F5
+// 다음 중단점까지 코드 실행
+// 중단점 생성 및 해제 : F9
+// 디버깅 중, 구문 수행 : F10 : 프로시저 단위 실행
+// 디버깅 중, 구문 수행(함수 진입) : F11 : 한 단계씩 코드 실행
+// 디버깅 중, 디버깅 종료하기 : Shift + F5
