@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "funtion.h"
+#include "common.h"
 
 
 // 변수의 종류
@@ -23,10 +25,41 @@ int g_i = 0; // Data 영역
 // 프로그램 종료와 함께 해제
 
 
+// 정적변수 : 선언된 지역에서만 활동한다 
+// 최초 선언할 때만 초기화한다.
+// 데이터 영역에 존재하지만 선언된 지역 이외의 다른 지역에선 접근할 수 없다
+static int g_iStatic = 0;
+
+int Test()
+{
+	static int i = 0;
+	++i;
+
+	return i;
+}
+
+// 외부변수 : 헤더 파일에 존재하기만 하는 변수를 어느 파일이던 선언을 해주면 프로젝트 내 어느 파일에서건 사용이 가능하다.
+int g_iExtern = 0;
+
+
+
+
+
 int main()
 {
 	// 지역변수
-	int a = 0;
+	g_iExtern = 100;
+	int data = Add(10, 10);
+	data = Sub(10, 5);
+	data = Mul(10, 10);
+
+	Test();
+	Test();
+	Test();
+	Test();
+	Test();
+	int iCall = Test();
+	
 
 	return 0;
 }
