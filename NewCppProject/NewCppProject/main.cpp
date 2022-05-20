@@ -246,6 +246,23 @@ int main()
 
 		break;
 	}
+	//콘솔
+	// printf
+	printf("abcdef  %d \n", 10);
+	printf("abcdef  %f \n", 3.14f);
+	for (int i=0; i < 10; ++i)
+	{
+		printf("Output i : %d \n", i);
+	}
+	
+	// scanf
+	int iInput = 0;
+	scanf_s("%d", &iInput);
+	printf("\n %d", iInput);
+
+
+
+
 
 	return 0;
 }
@@ -262,3 +279,5 @@ int main()
 // 디버깅 중, 구문 수행 : F10 : 프로시저 단위 실행
 // 디버깅 중, 구문 수행(함수 진입) : F11 : 한 단계씩 코드 실행
 // 디버깅 중, 디버깅 종료하기 : Shift + F5
+
+
