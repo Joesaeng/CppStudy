@@ -131,7 +131,7 @@ int main()
 	}
 	else
 	{
-		//거짓인 경우
+		//if, else if 모두 거짓인 경우
 	}
 
 	// switch case
@@ -148,6 +148,7 @@ int main()
 
 		break;
 	}
+	// 위 switch 문과 아래 if else if 문의 수행은 동일하다
 	if (iTest == 10)
 	{
 
@@ -193,10 +194,11 @@ int main()
 	iStatus |= HUNGRY;
 	iStatus |= THIRSTY;
 	iStatus |= TIRED;
+	//iStatus의 비트 자리에 HUNGRY의 비트 값을 더한다
 
 	if (iStatus & HUNGRY)
 	{
-
+		//iStatus 의 값에 HUNGRY가 들어있는지 확인하느 조건
 	}
 
 	//특정 자리 비트 제거

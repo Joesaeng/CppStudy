@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 // 사용자 정의 자료형
-typedef struct _tagMyST //*type define : 타입 재정의
+typedef struct _tagMyST // *typedef = type define : 타입 재정의
 {
 	int a;
 	float f;

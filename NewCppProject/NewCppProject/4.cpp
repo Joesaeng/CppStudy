@@ -59,7 +59,30 @@ int main()
 	Test();
 	Test();
 	int iCall = Test();
+	printf("Test 함수 호출 횟수 : %d\n", iCall);
+
+
 	
+
+	// 포인터 변수
+	// 주소를 저장하는 변수
+	// 자료형 + * 변수명
+	// 해당 포인터가 가리키는 주소를 해석하는 자료형
+
+	int i = 100;
+	float f = 3.f;
+	int* pInt = &i; // i의 주소를 pInt에 저장
+	pInt = (int*)&f;
+
+
+	// 주소로 접근
+	i = *pInt;
+
+
+	// 주소의 단위는 바이트 단위이며 정수단위이다
+	// BYTE 
+
+
 
 	return 0;
 }
