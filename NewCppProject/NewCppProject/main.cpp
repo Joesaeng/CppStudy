@@ -1,12 +1,12 @@
 ﻿#include <stdio.h>
 
-#define HUNGRY	0x01	//16진수 0x를 앞에 붙인다
+#define HUNGRY		0x01	//16진수 0x를 앞에 붙인다
 #define THIRSTY		0x02
-#define TIRED			0x04
-#define FIRE			0x08
-#define COLD			0x10
+#define TIRED		0x04
+#define FIRE		0x08
+#define COLD		0x10
 #define POISON		0x20
-#define HURT			0x40
+#define HURT		0x40
 
 
 // 전처리기 #define : 내가 지정한 구문을 특정 숫자로 치환해준다

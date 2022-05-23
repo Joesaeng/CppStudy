@@ -1,5 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <wchar.h>
+
+
+// 메모리 영역
+// 1. 스택 영역
+// 2. 데이터 영역
+// 3. ROM(Read Only Memory)(코드) 영역
+// 4. 힙 영역
+
+
 
 // 함수의 인자를 const 포인터로 받아옴으로써 그 변수 자체를 받아오는것보다 좋은 퍼포먼스를 기대 할 수 있다.
 // const를 선언하는 이유는 const를 선언하지 않으면 함수의 인자에서 포인터를 받아오면 그 함수 안에서 포인터에 들어있는 내용을 수정할 수 있기 때문이다.
@@ -85,14 +95,39 @@ int main()
 		// pVoid + 1;
 	}
 
-	int ii = 1;
-	float* pfi = (float*)&ii;
-	int* pii = &ii;
+	{
+		// 문자
+		// char(1), wchar(2)
+		// 표현 방식은 정수형이지만, 그 정수에 대응하는 문자를 보여준다.
 
-	int iii = (int)*pfi;
-	iii = *pii;
+		char c = 'a';
+		wchar_t wc = L'a';
+
+		char szChar[10] = "abcdef";
+		wchar_t szWchar[10] = L"abcdef"; //문자열의 초기화 방식, 앞의 L은 모든 문자를 2바이트 방식으로 표현하는 것
+
+		const wchar_t* pChar = L"abcdef"; // 문자열의 포인터 주소는 ROM에 있기 때문에 읽을순 있으니 코드영역에 있는 것이기 때문에 수정할 수 없다
+											// 그렇기 때문에 비주얼스튜디오 자체에서 문자열의 포인터는 const 포인터로만 읽어올 수 있다.
+		short arrShort[10] = { 97, 98, 99, 100, 101, 102, };
+
+		szWchar[1] = 'z';
+		// pChar[0] = 'z';
+		
+		unsigned char szTestC[10] = "abc한글"; // *앞에 L이 없으면 멀티바이트 방식으로, 1바이트 문자면 1바이트, 2바이트 문자면 2바이트로 표현한다.
+									// 멀티바이트 시스템은 표준으로 쓰이는 시스템은 아니며 요새는 모든 문자열을 2바이트(와이드바이트)식으로 쓴다*(유니코드 시스템)
+
+		wchar_t szTestWc[10] = L"abc한글"; // 와이드바이트 (앞의 L)
 
 
+	}
+
+	{
+		wchar_t szName[10] = L"Raimond";
+
+		int iLen = wcslen(szName);
+
+		int a = 0;
+	}
 
 
 	return 0;
