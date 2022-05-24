@@ -27,7 +27,7 @@ int main()
 	// 가변배열
 	int a = 100;
 
-	scanf_s("d", &a);
+	scanf_s("%d", &a);
 
 	// 배열 개수를 선언할 때에는 변수를 사용 할 수 없다.
 	// int arr[a] = {};
