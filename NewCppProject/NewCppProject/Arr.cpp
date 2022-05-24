@@ -17,7 +17,7 @@ void Reallocate(tArr* _pArr)
 	// 2. 기존에 있던 데이터를 새로운 공간에 복사시킨다.
 	for (int i = 0; i < _pArr->iCount; ++i)
 	{
-		if(pNew)pNew[i] = _pArr->pInt[i];
+		pNew[i] = _pArr->pInt[i];
 	}
 
 	// 3. 기존에 있던 데이터가 있던 공간을 해제시킨다.
