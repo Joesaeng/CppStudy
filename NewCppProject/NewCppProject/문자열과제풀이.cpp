@@ -13,10 +13,10 @@ int wcCompare(const wchar_t* _left, const wchar_t* _right)
 	int j = 0;
 	while (_left[i] != 0 || _right[i] != 0)
 	{
-		if (_left[i] != _right[i])
+		if (_left[i] != _right[i]) 
 		{
 			_left[i] < _right[i] ? j = -1 : j = 1;
-			break;
+			break; 
 		}
 		else
 		{
