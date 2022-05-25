@@ -1,5 +1,4 @@
-﻿  Arr_.cpp
-  가변배열과제.cpp
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\가변배열과제.cpp(60,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
+﻿  12.cpp
+E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\LinkedList.h(8,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Node' 왼쪽은 무시됩니다.
+E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\LinkedList.h(15,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'LinkedList' 왼쪽은 무시됩니다.
   NewCppProject.vcxproj -> E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\x64\Debug\NewCppProject.exe
