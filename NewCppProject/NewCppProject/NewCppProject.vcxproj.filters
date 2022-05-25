@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="LinkedList">
+      <UniqueIdentifier>{31f7f1ad-733e-4c78-bff6-5faeb3e8a189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arr">
+      <UniqueIdentifier>{de2c8023-1356-4a95-b3b5-6f71bf6095a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="가변배열과제">
+      <UniqueIdentifier>{6532df3f-2976-41b8-9cb1-9d2f6d7d2517}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -40,11 +49,26 @@
     <ClCompile Include="10.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Arr.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="11.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>LinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="Arr.cpp">
+      <Filter>Arr</Filter>
+    </ClCompile>
+    <ClCompile Include="12.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Arr_.cpp">
+      <Filter>가변배열과제</Filter>
+    </ClCompile>
+    <ClCompile Include="가변배열과제.cpp">
+      <Filter>가변배열과제</Filter>
+    </ClCompile>
+    <ClCompile Include="bubbleSort.cpp">
+      <Filter>가변배열과제</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +78,17 @@
     <ClInclude Include="common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>LinkedList</Filter>
+    </ClInclude>
     <ClInclude Include="Arr.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Arr</Filter>
+    </ClInclude>
+    <ClInclude Include="Arr_.h">
+      <Filter>가변배열과제</Filter>
+    </ClInclude>
+    <ClInclude Include="bubbleSort.h">
+      <Filter>가변배열과제</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
