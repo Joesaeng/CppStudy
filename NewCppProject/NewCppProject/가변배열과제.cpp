@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Arr_.h"
 #include "bubbleSort.h"
-
+#include <time.h>
 
 int main()
 {
@@ -9,7 +9,7 @@ int main()
 	
 	SetArr(&arr);
 
-	AddData(&arr, 10);
+	/*AddData(&arr, 10);
 	AddData(&arr, 15);
 	AddData(&arr, 77);
 	AddData(&arr, 897);
@@ -24,7 +24,16 @@ int main()
 	AddData(&arr, 6566);
 	AddData(&arr, 62896);
 	AddData(&arr, 6446);
-	AddData(&arr, 1);
+	AddData(&arr, 1);*/
+
+	// 난수(랜덤)
+	srand(time(nullptr));
+
+	for (int i = 0; i < 20; ++i)
+	{
+		int iRand = rand() % 1000 + 1;
+		AddData(&arr, iRand);
+	}
 
 	for (int i = 0; i < arr.count; ++i)
 		printf("%d\n", arr.pInt[i]);
@@ -36,6 +45,7 @@ int main()
 
 	for (int i = 0; i < arr.count; ++i)
 		printf("%d\n", arr.pInt[i]);
+	// 삽입, 선택, 합병, 쾌속, 힙 정렬도 한번씩 구현해보자.
 
 
 
