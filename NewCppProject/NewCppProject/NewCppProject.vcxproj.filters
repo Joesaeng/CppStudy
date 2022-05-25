@@ -19,7 +19,7 @@
     <Filter Include="Arr">
       <UniqueIdentifier>{de2c8023-1356-4a95-b3b5-6f71bf6095a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="가변배열과제">
+    <Filter Include="가변배열,정렬테스터">
       <UniqueIdentifier>{6532df3f-2976-41b8-9cb1-9d2f6d7d2517}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -28,53 +28,29 @@
     <ClCompile Include="2.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
-    <ClCompile Include="function.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="6.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="7.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="8.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="문자열과제풀이.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="9.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="10.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="11.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>LinkedList</Filter>
     </ClCompile>
     <ClCompile Include="Arr.cpp">
       <Filter>Arr</Filter>
     </ClCompile>
-    <ClCompile Include="12.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Arr_.cpp">
-      <Filter>가변배열과제</Filter>
+      <Filter>가변배열,정렬테스터</Filter>
     </ClCompile>
-    <ClCompile Include="가변배열과제.cpp">
-      <Filter>가변배열과제</Filter>
+    <ClCompile Include="가변배열,정렬테스터.cpp">
+      <Filter>가변배열,정렬테스터</Filter>
     </ClCompile>
+    <ClCompile Include="문자열과제풀이.cpp" />
+    <ClCompile Include="6.cpp" />
+    <ClCompile Include="7.cpp" />
+    <ClCompile Include="8.cpp" />
+    <ClCompile Include="9.cpp" />
+    <ClCompile Include="10.cpp" />
+    <ClCompile Include="11.cpp" />
+    <ClCompile Include="12.cpp" />
+    <ClCompile Include="function.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="funtion.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="LinkedList.h">
       <Filter>LinkedList</Filter>
     </ClInclude>
@@ -82,7 +58,9 @@
       <Filter>Arr</Filter>
     </ClInclude>
     <ClInclude Include="Arr_.h">
-      <Filter>가변배열과제</Filter>
+      <Filter>가변배열,정렬테스터</Filter>
     </ClInclude>
+    <ClInclude Include="funtion.h" />
+    <ClInclude Include="common.h" />
   </ItemGroup>
 </Project>

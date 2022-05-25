@@ -41,7 +41,7 @@ void EraseArr(JoArr* pArr)
 }
 
 
-void Sort(JoArr* pArr, void(*SortFunc)(int*, int))
+void Sort(JoArr* pArr, void(*SortFunc)(int*, int)) // 함수 포인터를 활용한 정렬 함수
 {
 	SortFunc(pArr->pInt, pArr->count);
 }

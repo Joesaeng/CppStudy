@@ -20,11 +20,9 @@ void SetArr(JoArr* pArr);
 void AddData(JoArr* pArr, int data);
 
 
-
-
-// 4. 힙 영역에 할당된 데이터 해제
+// 3. 힙 영역에 할당된 데이터 해제
 void EraseArr(JoArr* pArr);
 
 
-// 정렬 알고리즘
+// 정렬 알고리즘 , 함수 포인터를 이용한
 void Sort(JoArr* pArr, void(*SortFunc)(int*,int));
