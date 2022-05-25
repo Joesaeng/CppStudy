@@ -67,9 +67,6 @@
     <ClCompile Include="가변배열과제.cpp">
       <Filter>가변배열과제</Filter>
     </ClCompile>
-    <ClCompile Include="bubbleSort.cpp">
-      <Filter>가변배열과제</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="funtion.h">
@@ -85,9 +82,6 @@
       <Filter>Arr</Filter>
     </ClInclude>
     <ClInclude Include="Arr_.h">
-      <Filter>가변배열과제</Filter>
-    </ClInclude>
-    <ClInclude Include="bubbleSort.h">
       <Filter>가변배열과제</Filter>
     </ClInclude>
   </ItemGroup>

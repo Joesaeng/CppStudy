@@ -24,3 +24,7 @@ void AddData(JoArr* pArr, int data);
 
 // 4. 힙 영역에 할당된 데이터 해제
 void EraseArr(JoArr* pArr);
+
+
+// 정렬 알고리즘
+void Sort(JoArr* pArr, void(*SortFunc)(int*,int));

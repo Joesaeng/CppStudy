@@ -39,3 +39,9 @@ void EraseArr(JoArr* pArr)
 	pArr->count = 0;
 	pArr->maxCount = 0;
 }
+
+
+void Sort(JoArr* pArr, void(*SortFunc)(int*, int))
+{
+	SortFunc(pArr->pInt, pArr->count);
+}

@@ -1,2 +1,5 @@
-﻿  가변배열과제.cpp
+﻿  Arr_.cpp
+  가변배열과제.cpp
+E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\가변배열과제.cpp(60,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
   NewCppProject.vcxproj -> E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\x64\Debug\NewCppProject.exe
