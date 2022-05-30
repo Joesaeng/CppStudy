@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Arr_.h"
 #include "Carr.h"
+#include "cLinkedList.h"
 
 class CTest
 {
@@ -74,6 +75,21 @@ int main()
 	printf("%f\n", cArrF[1]);
 	printf("%f\n", cArrF[2]);
 	printf("%f\n", cArrF[3]);
+
+	// 템플릿 리스트
+	cLinkedList<int> cList;
+
+	for (int i = 0; i < 4; ++i)
+	{
+		cList.pushBack(i);
+	}
+
+	// C printf 대체
+	std::cout << "안녕" << 10 << std::endl;
+
+	// C scanf 대체
+	int iInput= 0 ;
+	std::cin >> iInput;
 
 	return 0;
 }

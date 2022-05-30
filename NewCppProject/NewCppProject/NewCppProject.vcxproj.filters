@@ -55,5 +55,8 @@
     <ClInclude Include="Carr.h">
       <Filter>가변배열,정렬테스터</Filter>
     </ClInclude>
+    <ClInclude Include="cLinkedList.h">
+      <Filter>LinkedList</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
