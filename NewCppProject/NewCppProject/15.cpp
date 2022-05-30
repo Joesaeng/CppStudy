@@ -1,5 +1,8 @@
 #include <iostream>
 
+#include <vector>
+#include <list>
+
 
 namespace MYSPACE // 네임스페이스
 {
@@ -16,6 +19,8 @@ using std::cout; // 네임스페이스의 특정 기능만 네임스페이스 없이 사용한다
 using std::wcout;
 using std::endl;
 using std::cin;
+using std::vector;
+using std::list;
 
 void MyEndL()
 {
@@ -71,6 +76,33 @@ int main()
 
 	int a = 0;
 	myCout >> a;
+
+	vector<int> vecInt;
+	vecInt.push_back(10);
+	vecInt.push_back(20);
+
+	vecInt[0] = 100;
+	vecInt.at(1);
+	vecInt[1];
+	vecInt.data();
+	vecInt.size();
+	vecInt.capacity();
+
+	for (size_t i = 0; i < vecInt.size(); ++i)
+	{
+		cout<<vecInt.at(i)<<endl;
+	}
+
+
+	list<int> listInt;
+	listInt.push_back(10);
+	listInt.push_front(200);
+	listInt.size();
+	
+
+	// iterator (inner class)  : 클래스 내부에 있는 클래스
+	list<int>::iterator iter = listInt.begin();
+	int iData = *iter;
 
 	return 0;
 }
