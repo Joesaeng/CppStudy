@@ -31,6 +31,8 @@ private:
 public:
 	void pushBack(const T& _data);
 	void pushFront(const T& _data);
+	void size() { return iCount };
+	void begin() { return *pHead };
 
 public:
 	cLinkedList();

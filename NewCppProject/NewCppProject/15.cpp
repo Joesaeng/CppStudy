@@ -3,6 +3,8 @@
 #include <vector>
 #include <list>
 
+#include "Carr.h"
+
 
 namespace MYSPACE // 네임스페이스
 {
@@ -21,6 +23,29 @@ using std::endl;
 using std::cin;
 using std::vector;
 using std::list;
+
+class CTest
+{
+public:
+	int i;
+
+public:
+	CTest& operator =(const CTest& _other)
+	{
+		i = _other.i;
+		return *this;
+	}
+
+	CTest(const CTest& _other) // 클래스 생성자가 하나라도 있다면 시스템 내부에서 기본 생성자를 만들어주지 않는다.
+		: i(_other.i)
+	{}
+	CTest()
+		:i(0)
+	{}
+	~CTest()
+	{}
+
+};
 
 void MyEndL()
 {
@@ -71,38 +96,72 @@ int main()
 	setlocale(LC_ALL, "korean");
 	_wsetlocale(LC_ALL, L"korean");
 
-	myCout << 10 << 20 << 30 << MyEndL;
-	myCout << L"한글" << 10<< 30;
+	//myCout << 10 << 20 << 30 << MyEndL;
+	//myCout << L"한글" << 10<< 30;
 
-	int a = 0;
-	myCout >> a;
+	//int a = 0;
+	//myCout >> a;
 
-	vector<int> vecInt;
-	vecInt.push_back(10);
-	vecInt.push_back(20);
+	//vector<int> vecInt;
+	//vecInt.push_back(10);
+	//vecInt.push_back(20);
+	//
+	//vector<int>::iterator veciter = vecInt.begin();
+	//
+	//for (int i = 0; i < 10; ++i)
+	//{
+	//	vecInt.push_back(i);
+	//}
 
-	vecInt[0] = 100;
-	vecInt.at(1);
-	vecInt[1];
-	vecInt.data();
-	vecInt.size();
-	vecInt.capacity();
 
-	for (size_t i = 0; i < vecInt.size(); ++i)
+
+
+
+
+
+	//list<int> listInt;
+	//listInt.push_back(10);
+	//listInt.push_back(200);
+	//
+	//// iterator (inner class *클래스 내부에 있는 클래스)  
+	//list<int>::iterator iter = listInt.begin();
+	//int iData = *iter;
+	//listInt.erase(iter);
+
+	//for (iter = listInt.begin(); iter != listInt.end(); ++iter) // iterator의 end는 마지막 데이터가 아닌 마지막데이터에서 다음을 가리키며 엔드이터레이터라 불린다
+	//{
+	//	cout << *iter << endl;
+	//}
+
+	Carr<int> myVector;
+	myVector.push_back(1);
+	myVector.push_back(2);
+	myVector.push_back(3);
+	myVector.push_back(4);
+	myVector.push_back(5);
+
+	Carr<int>::iterator myIter = myVector.begin();
+
+	// ++(전위, 후위), --, ==, !=
+	for (; myIter != myVector.end(); ++myIter)
 	{
-		cout<<vecInt.at(i)<<endl;
+		cout << *myIter << endl;
 	}
 
+	myIter = myVector.begin();
 
-	list<int> listInt;
-	listInt.push_back(10);
-	listInt.push_front(200);
-	listInt.size();
+	int iData = (*myIter++);
+	for (; myIter != myVector.end(); ++myIter)
+	{
+		cout << *myIter << endl;
+	}
 	
-
-	// iterator (inner class)  : 클래스 내부에 있는 클래스
-	list<int>::iterator iter = listInt.begin();
-	int iData = *iter;
+	--myIter;
+	cout << *myIter << endl;
+	--myIter;
+	cout << *myIter << endl;
+	myIter--;
+	cout << *myIter << endl;
 
 	return 0;
 }

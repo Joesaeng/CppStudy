@@ -1,8 +1,2 @@
 ﻿  15.cpp
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(85,8): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(86,10): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(87,13): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(88,13): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(89,17): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
-E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\NewCppProject\15.cpp(100,14): warning C4834: 'nodiscard' 특성이 포함된 함수의 반환 값을 버리는 중
   NewCppProject.vcxproj -> E:\C++공부\Cpp_Study\C++\CppStudy\NewCppProject\x64\Debug\NewCppProject.exe
