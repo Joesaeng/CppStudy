@@ -4,6 +4,7 @@
 #include <list>
 
 #include "CArr.h"
+#include "cLinkedList.h"
 
 
 namespace MYSPACE // 네임스페이스
@@ -146,7 +147,6 @@ int main()
 	myIter = myVector.erase(myIter);
 	myIter = myVector.erase(myIter);
 	myIter = myVector.erase(myIter);
-	myIter = myVector.erase(myIter);
 
 
 	// ++(전위, 후위), --, ==, !=
@@ -155,9 +155,7 @@ int main()
 	//	cout << *myIter << endl;
 	//}
 
-	myIter = myVector.begin();
 
-	int iData = (*myIter++);
 	//for (; myIter != myVector.end(); ++myIter)
 	//{
 	//	cout << *myIter << endl;
@@ -205,6 +203,34 @@ int main()
 	{
 		cout << vecInt[i] << endl;
 	}
+
+	// =============
+	// list iterator
+	// =============
+
+	cLinkedList<int> myList;
+
+	myList.pushBack(100);
+	myList.pushBack(300);
+	myList.pushBack(400);
+
+	cLinkedList<int>::iterator listIter = myList.begin();
+	++listIter;
+	listIter = myList.insert(listIter, 200);
+
+	cout << endl <<"=============" << endl;
+	cout << "list iterator" << endl;
+	cout << "=============" << endl << endl;
+
+
+	for (listIter = myList.begin(); listIter != myList.end(); ++listIter)
+	{
+		cout << *listIter << endl;
+	}
+
+
+
+
 
 	return 0;
 }

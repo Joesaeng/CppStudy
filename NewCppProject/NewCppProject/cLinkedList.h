@@ -31,12 +31,99 @@ private:
 public:
 	void pushBack(const T& _data);
 	void pushFront(const T& _data);
-	void size() { return iCount };
-	void begin() { return *pHead };
+	int size() { return iCount; };
+
+	class iterator;
+	iterator begin();
+	iterator end();
+	iterator erase(iterator& _iter);
+	iterator insert(const iterator& _iter, const T& _data);
 
 public:
 	cLinkedList();
 	~cLinkedList();
+
+	class iterator
+	{
+		cLinkedList<T>*	pList;
+		Node<T>*		pNode;	// null 인 경우, end iterator 로 간주
+		bool			bValid;
+
+	public:
+		T& operator* ()
+		{
+			return pNode->data;
+		}
+
+		bool operator ==(const iterator& _other)
+		{
+			if (pList == _other.pList && pNode == _other.pNode)
+				return true;
+
+			return false;
+		}
+		bool operator !=(const iterator& _other)
+		{
+			return !(*this == _other);
+		}
+
+		iterator operator ++()
+		{
+			if (nullptr == pNode || !bValid)
+				assert(nullptr);
+
+			pNode = pNode->pNext;
+
+			return *this;
+		}
+
+		iterator operator ++(int)
+		{
+			iterator copyIter(*this);
+
+			++(*this);
+
+			return copyIter;
+
+		}
+
+		iterator operator --()
+		{
+			if (nullptr == pNode || !bValid)
+				assert(nullptr);
+
+			pNode = pNode->pPrev;
+
+			return *this;
+		}
+		
+		iterator operator --(int)
+		{
+			iterator copyIter(*this);
+
+			--(*this);
+
+			return copyIter;
+		}
+	public:
+		iterator()
+			: pList(nullptr)
+			, pNode(nullptr)
+			, bValid(false)
+		{}
+		iterator(cLinkedList<T>* _pList, Node<T>* _pNode)
+			: pList(_pList)
+			, pNode(_pNode)
+			, bValid(false)
+		{
+			if (nullptr != _pList && nullptr != _pNode)
+				bValid = true;
+		}
+		~iterator()
+		{}
+
+		friend class cLinkedList;
+	};
 };
 
 template<typename T>
@@ -104,4 +191,57 @@ void cLinkedList<T>::pushFront(const T& _data)
 		pHead = pNewNode;
 	}
 	++iCount;
+}
+
+template<typename T>
+typename cLinkedList<T>::iterator cLinkedList<T>::begin()
+{
+	return iterator(this, pHead);
+}
+
+template<typename T>
+typename cLinkedList<T>::iterator cLinkedList<T>::end()
+{
+	return iterator(this, nullptr);
+}
+
+template<typename T>
+typename cLinkedList<T>::iterator cLinkedList<T>::erase(iterator& _iter)
+{
+
+	return iterator();
+}
+
+template<typename T>
+typename cLinkedList<T>::iterator cLinkedList<T>::insert(const iterator& _iter, const T& _data)
+{
+	if (end() == _iter)
+		assert(nullptr);
+
+	// 리스트에 추가되는 데이터를 저장할 Node 생성
+	Node<T>* pNode = new Node<T>(_data, nullptr, nullptr);
+
+	// iterator 가 가리키는 노드가 헤드노드인 경우
+	if (pHead == _iter.pNode)
+	{
+		_iter.pNode->pPrev = pNode;
+		pNode->pNext = _iter.pNode;
+		pHead = pNode;
+	}
+	else
+	{
+		// iterator 가 가리키고 있는 노드의 이전으로 가서 
+		// 다음 노드 주소 파트로 새로 생성한 노드로 지정
+		_iter.pNode->pPrev->pNext = pNode;
+		pNode->pPrev = _iter.pNode->pPrev;
+
+		// iterator 가 가리키고 있는 노드의 이전 노드(pPrev)를 새로 생성된 노드로 지정
+		// 새로 생성된 노드의 다음 노드(pNext)를 iterator 가 가리키고 있는 노드로 지정
+		_iter.pNode->pPrev = pNode;
+		pNode->pNext = _iter.pNode;
+	}
+
+	++iCount;
+
+	return iterator(this, pNode);
 }

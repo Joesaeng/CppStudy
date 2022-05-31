@@ -55,7 +55,7 @@ public:
 		{
 			// end iterator인 경우
 			// 데이터 재할당이 발생하여 Vector의 주소와 iterator의 주소가 다른경우
-			if (pArr->m_pData != pData || -1 == index)
+			if (pArr->m_pData != pData || -1 == index || !bValid)
 				assert(nullptr);
 
 			// iterator 가 마지막 데이터를 가리키고 있는 경우
@@ -84,7 +84,7 @@ public:
 			// 예외처리
 			// 데이터 재할당이 발생하여 Vector의 주소가 iterator의 주소와 다른경우
 			// iterator의 인덱스가 0 (시작점을 가리키고 있는 경우)
-			if (pArr->m_pData != pData || 0 == index)
+			if (pArr->m_pData != pData || 0 == index || !bValid)
 				assert(nullptr);
 
 			// iterator가 end iterator인 경우
