@@ -3,11 +3,11 @@
 #include <iostream>
 
 template<typename T>
-class Carr
+class CArr
 {
 private:
 	T*		m_pData;	//배열 주소
-	int		m_iCount;	//배열의 채워진 회수
+	int		m_iCount;	//배열이 채워진 회수
 	int		m_iMaxCount;//배열의 현재 최대 길이
 
 public:
@@ -21,18 +21,22 @@ public:
 	class iterator;
 	iterator begin();
 	iterator end();
+	iterator erase(iterator& _iter);
+
+	void clear(){m_iCount = 0;}
 
 public:
-	Carr();		// 생성자
-	~Carr();	// 소멸자
+	CArr();		// 생성자
+	~CArr();	// 소멸자
 
 	// inner 클래스는 이너클래스를 포함하는 클래스의 private 멤버에 접근 가능
 	class iterator
 	{
 	private:
-		Carr*	pArr;		// iterator 가 가리킬 데이터를 관리하는 가변배열 주소
+		CArr*	pArr;		// iterator 가 가리킬 데이터를 관리하는 가변배열 주소
 		T*		pData;		// 데이터들의 시작 주소
 		int		index;		// 가리키는 데이터의 인덱스
+		bool	bValid;	// 유효성
 
 	public:
 		T& operator * ()
@@ -40,7 +44,7 @@ public:
 			// iterator 가 알고있는 주소와, 가변배열이 알고있는 주소가 달라진 경우(공간 확장으로 주소가 달라진 경우)
 			// iterator 가 end iterator 일 경우
 			// 예외처리 한다.
-			if (pArr->m_pData != pData || -1 == index)
+			if (pArr->m_pData != pData || -1 == index || !bValid)
 				assert(nullptr);
 			
 			return pData[index];
@@ -131,21 +135,28 @@ public:
 			: pArr(nullptr)
 			, pData(nullptr)
 			, index(-1)
+			, bValid(false)
 		{}
-		iterator(Carr* _pArr,T* _pData, int _index)
+		iterator(CArr* _pArr,T* _pData, int _index)
 			: pArr(_pArr)
 			, pData(_pData)
 			, index(_index)
-		{}
+			, bValid(false)
+		{
+			if (nullptr != _pArr && 0 <= _index)
+				bValid = true;
+		}
 		~iterator()
 		{
 
 		}
+		friend class CArr;
+
 	};
 };
 
 template<typename T>
-Carr<T>::Carr()
+CArr<T>::CArr()
 	: m_pData(nullptr)
 	, m_iCount(0)
 	, m_iMaxCount(2)
@@ -154,13 +165,13 @@ Carr<T>::Carr()
 }
 
 template<typename T>
-Carr<T>::~Carr()
+CArr<T>::~CArr()
 {
 	delete[] m_pData;
 }
 
 template<typename T>
-void Carr<T>::resize(int _iResizeCount)
+void CArr<T>::resize(int _iResizeCount)
 {
 	// 현재 최대 수용량 보다 더 적은 수치로 확장하려는 경우 
 	if (m_iMaxCount >= _iResizeCount)
@@ -184,28 +195,54 @@ void Carr<T>::resize(int _iResizeCount)
 }
 
 template<typename T>
-T& Carr<T>::operator[](int idx)
+T& CArr<T>::operator[](int idx)
 {
 	return m_pData[idx];
 }
 
 template<typename T>
-typename Carr<T>::iterator Carr<T>::begin()
+typename CArr<T>::iterator CArr<T>::begin()
 {
 	if (0 == m_iCount)
 		return iterator(this, m_pData, -1); // 데이터가 없는 경우, begin() == end()
+
 	// 시작을 가리키는 iterator를 만들어서 반환해줌
 	return iterator(this, m_pData, 0);
 }
 template<typename T>
-typename Carr<T>::iterator Carr<T>::end()
+typename CArr<T>::iterator CArr<T>::end()
 {
 	return iterator(this, m_pData, -1);
 }
 
+template<typename T>
+typename CArr<T>::iterator CArr<T>::erase(iterator& _iter)
+{
+	// 예외처리
+	// iterator 가 가리키는 배열이 현재 관리하고있는 배열이 아닌 다른 배열인 경우
+	// iterator 가 end iterator 인 경우
+	if (this != _iter.pArr || end() == _iter || m_iCount <= _iter.index )
+		assert(nullptr);
+
+	// iterator 가 가리키는 데이터를 배열 내에서 제거한다.
+	int iLoopCount = m_iCount - (_iter.index + 1);
+
+	for (int i = 0; i < iLoopCount; ++i)
+	{
+		m_pData[i + _iter.index] = m_pData[i + _iter.index + 1];
+	}
+
+	_iter.bValid = false;
+	// 카운트 감소
+	--m_iCount;
+
+
+	return iterator(this, m_pData, _iter.index);
+}
+
 
 template<typename T>
-void Carr<T>::push_back(const T& _Data)
+void CArr<T>::push_back(const T& _Data)
 {
 	if (m_iCount >= m_iMaxCount) // 배열의 길이가 모자라는것을 확인
 	{

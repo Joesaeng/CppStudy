@@ -3,7 +3,7 @@
 #include <vector>
 #include <list>
 
-#include "Carr.h"
+#include "CArr.h"
 
 
 namespace MYSPACE // 네임스페이스
@@ -133,35 +133,78 @@ int main()
 	//	cout << *iter << endl;
 	//}
 
-	Carr<int> myVector;
+	CArr<int> myVector;
 	myVector.push_back(1);
 	myVector.push_back(2);
 	myVector.push_back(3);
 	myVector.push_back(4);
 	myVector.push_back(5);
 
-	Carr<int>::iterator myIter = myVector.begin();
+	CArr<int>::iterator myIter = myVector.begin();
+	myIter = myVector.erase(myIter);
+	myIter = myVector.erase(myIter);
+	myIter = myVector.erase(myIter);
+	myIter = myVector.erase(myIter);
+	myIter = myVector.erase(myIter);
+	myIter = myVector.erase(myIter);
+
 
 	// ++(전위, 후위), --, ==, !=
-	for (; myIter != myVector.end(); ++myIter)
-	{
-		cout << *myIter << endl;
-	}
+	//for (myIter = myVector.begin(); myIter != myVector.end(); ++myIter)
+	//{
+	//	cout << *myIter << endl;
+	//}
 
 	myIter = myVector.begin();
 
 	int iData = (*myIter++);
-	for (; myIter != myVector.end(); ++myIter)
-	{
-		cout << *myIter << endl;
-	}
+	//for (; myIter != myVector.end(); ++myIter)
+	//{
+	//	cout << *myIter << endl;
+	//}
 	
-	--myIter;
-	cout << *myIter << endl;
-	--myIter;
-	cout << *myIter << endl;
-	myIter--;
-	cout << *myIter << endl;
+	//--myIter;
+	//cout << *myIter << endl;
+	//--myIter;
+	//cout << *myIter << endl;
+	//myIter--;
+	//cout << *myIter << endl;
+
+
+	vector<int> vecInt;
+
+	vecInt.push_back(100);
+	vecInt.push_back(200);
+	vecInt.push_back(300);
+	vecInt.push_back(400);
+
+	vector<int>::iterator veciter = vecInt.begin();
+	veciter = vecInt.erase(veciter);
+	int i = *veciter;
+
+
+	vecInt.clear();
+
+	// 1 ~ 10 을 벡터에 입력
+	for (int i = 0; i < 10; ++i)
+	{
+		vecInt.push_back(i + 1);
+	}
+
+	// 짝수만 제거
+	veciter = vecInt.begin();
+	for (; veciter != vecInt.end();)
+	{
+		if (1 <= *veciter && *veciter <= 5)
+			veciter = vecInt.erase(veciter); // 제거
+		else // 제거가 되지 않았을 때
+			++veciter; // 반복문 인수를 증가시킨다
+	}
+
+	for (int i = 0; i < vecInt.size(); ++i)
+	{
+		cout << vecInt[i] << endl;
+	}
 
 	return 0;
 }
