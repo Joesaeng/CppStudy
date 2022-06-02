@@ -10,6 +10,9 @@
     <Filter Include="가변배열,정렬테스터">
       <UniqueIdentifier>{6532df3f-2976-41b8-9cb1-9d2f6d7d2517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BST">
+      <UniqueIdentifier>{9007975f-8d79-446f-9887-b6c6b4c85cc8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -59,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="cLinkedList.h">
       <Filter>LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="cBST.h">
+      <Filter>BST</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
