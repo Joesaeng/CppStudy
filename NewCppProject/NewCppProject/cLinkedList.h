@@ -35,6 +35,7 @@ public:
 
 	class iterator;
 	iterator begin();
+	iterator Tail();
 	iterator end();
 	iterator erase(iterator& _iter);
 	iterator insert(const iterator& _iter, const T& _data);
@@ -50,7 +51,7 @@ public:
 		bool			bValid;
 
 	public:
-		T& operator* ()
+		inline T& operator* ()
 		{
 			return pNode->data;
 		}
@@ -194,22 +195,55 @@ void cLinkedList<T>::pushFront(const T& _data)
 }
 
 template<typename T>
-typename cLinkedList<T>::iterator cLinkedList<T>::begin()
+inline typename cLinkedList<T>::iterator cLinkedList<T>::begin()
 {
 	return iterator(this, pHead);
 }
 
 template<typename T>
-typename cLinkedList<T>::iterator cLinkedList<T>::end()
+inline typename cLinkedList<T>::iterator cLinkedList<T>::Tail()
+{
+	return iterator(this, pTail);
+}
+
+template<typename T>
+inline typename cLinkedList<T>::iterator cLinkedList<T>::end()
 {
 	return iterator(this, nullptr);
 }
 
 template<typename T>
-typename cLinkedList<T>::iterator cLinkedList<T>::erase(iterator& _iter)
+ typename cLinkedList<T>::iterator cLinkedList<T>::erase(iterator& _iter)
 {
+	 // 예외처리
+	 // iterator가 end iterator 일 때
+	if (end() == _iter)
+		 assert(nullptr);
+	// 헤드노드 일 때
+	if (pHead == _iter.pNode)
+	{
+		pHead = pHead->pNext;
+		delete(pHead->pPrev);
+		pHead->pPrev = nullptr;
+	}
+	// 테일노드 일 떄
+	else if (pTail == _iter.pNode)
+	{
+		pTail = pTail->pPrev;
+		delete(pTail->pNext);
+		pTail->pNext = nullptr;
+	}
+	else
+	{
+		Node<T>* iterNode = _iter.pNode;
+		iterNode->pPrev->pNext = iterNode->pNext;
+		iterNode->pNext->pPrev = iterNode->pPrev;
+		delete(iterNode);
+	}
 
-	return iterator();
+	--iCount;
+	_iter.bValid = false;
+	return iterator(this,nullptr);
 }
 
 template<typename T>

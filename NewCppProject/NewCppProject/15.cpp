@@ -228,7 +228,8 @@ int main()
 		cout << *listIter << endl;
 	}
 
-
+	listIter = myList.begin();
+	myList.erase(listIter);
 
 
 
