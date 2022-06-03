@@ -60,12 +60,24 @@ int main()
 
 	cBST<int, int> cBstInt;
 
-	cBstInt.insert(makeBstpair(100, 0));
-	cBstInt.insert(makeBstpair(150, 0));
-	cBstInt.insert(makeBstpair(50, 0));
+	cBstInt.insert(makeBstpair(100, 0)); //		      100
+	cBstInt.insert(makeBstpair(150, 0)); //		 50        150
+	cBstInt.insert(makeBstpair(50, 0));  //	  25    75  125    175
+	cBstInt.insert(makeBstpair(25, 0));  //		                   200
+	cBstInt.insert(makeBstpair(75, 0));
+	cBstInt.insert(makeBstpair(125, 0));
+	cBstInt.insert(makeBstpair(175, 0));
+	cBstInt.insert(makeBstpair(200, 0));
 
-	cBST<int, int>::iterator Iter = cBstInt.begin();
+	cBST<int, int>::iterator Iter;
 	Iter = cBstInt.find(150);
+	Iter = cBstInt.erase(Iter);
+	Iter = cBstInt.find(100);
+	Iter = cBstInt.erase(Iter);
+
+
+
+
 
 	return 0;
 }
